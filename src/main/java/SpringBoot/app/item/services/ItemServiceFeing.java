@@ -18,7 +18,7 @@ public class ItemServiceFeing implements IItemService {
 
     private final Logger log = LoggerFactory.getLogger(ItemServiceFeing.class);
 
-    @Autowired
+    @Autowired  
     private ProductoClienteRest clienteRest;
 
     @Override

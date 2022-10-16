@@ -17,8 +17,8 @@ import SpringBoot.app.item.services.IItemService;
 public class ItemController {
     
     @Autowired
-    @Qualifier("serviceFeing")
-    //@Qualifier("serviceRestTemplate") // Al tener 2 servicios que implementan la interfas IItemSercice, Qualifier indica que deve usar solamente el servicio o clase "serviceFeing"
+    @Qualifier("serviceFeing")  // Al tener 2 servicios que implementan la interfas IItemSercice, Qualifier indica que deve usar solamente el servicio o clase "serviceFeing"
+    //@Qualifier("serviceRestTemplate")
     private IItemService itemService;
 
     @GetMapping("/listar")
