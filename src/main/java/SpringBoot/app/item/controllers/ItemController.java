@@ -17,8 +17,8 @@ import SpringBoot.app.item.services.IItemService;
 public class ItemController {
     
     @Autowired
-    @Qualifier("serviceFeing")  
-    // @Qualifier("serviceRestTemplate")
+    // @Qualifier("serviceFeing")
+    @Qualifier("serviceRestTemplate")
     private IItemService itemService;
 
     @GetMapping("/listar")

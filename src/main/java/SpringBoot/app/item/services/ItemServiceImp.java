@@ -27,9 +27,7 @@ public class ItemServiceImp implements IItemService {
     public List<Item> findAll() {
     	   log.info("Entraste metodo findAll de rest template");
         List<Producto> productos = Arrays.asList(
-            this.http.getForObject("http://localhost:8001/api/listar", Producto[].class)
-            // this.http.getForObject("http://servicio-productos/api/listar", Producto[].class)
-            
+            this.http.getForObject("http://servicio-productos/api/listar", Producto[].class)
         );
 
         return productos.stream().map((producto) -> new Item(producto, 1)).collect(Collectors.toList());

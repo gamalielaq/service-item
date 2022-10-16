@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class AppConfig {
     
     @Bean("clienteRest") //Registra restTamplate
-    @LoadBalanced //Ulizar ribbon para el baleanceo de carga
+    @LoadBalanced //Uliza por debajo ribbon para el baleanceo de carga
     public RestTemplate resgisterRestTemplate() {
         return new RestTemplate();
     }

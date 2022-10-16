@@ -12,7 +12,7 @@ import SpringBoot.app.item.models.Producto;
     servicio-productos --> Nombre del microservicio que se declara en el archivo appication.properies
     Clase que hace la integracion con el microservicio productos(servicio-productos)
 */
-@FeignClient(name = "servicio-productos", url = "localhost:8001")
+@FeignClient(name = "servicio-productos")
 public interface ProductoClienteRest {
 
     @GetMapping("api/listar")
