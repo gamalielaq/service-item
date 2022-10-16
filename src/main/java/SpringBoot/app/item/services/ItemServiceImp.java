@@ -18,7 +18,7 @@ import SpringBoot.app.item.models.Producto;
 @Service("serviceRestTemplate") // registar esta clase como un componente de spring(beans de spring)
 public class ItemServiceImp implements IItemService {
 	
-	 private final Logger log = LoggerFactory.getLogger(ItemServiceFeing.class);
+	 private final Logger log = LoggerFactory.getLogger(ItemServiceImp.class);
 
     @Autowired
     public RestTemplate http;
