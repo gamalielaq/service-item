@@ -14,8 +14,6 @@ import SpringBoot.app.item.models.Item;
 @Service("serviceFeing") // ItemServiceFeing-> nombre del servicio
 //@Primary // @Primary --> Se Utiliza para indicarle al controlador que es este es el servicio primario que deve inyectar
 public class ItemServiceFeing implements IItemService {
-
-
     private final Logger log = LoggerFactory.getLogger(ItemServiceFeing.class);
 
     @Autowired  
