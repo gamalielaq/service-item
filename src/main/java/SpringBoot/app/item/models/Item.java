@@ -24,7 +24,5 @@ public class Item {
     }
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
-    }
-
-    
+    }    
 }
