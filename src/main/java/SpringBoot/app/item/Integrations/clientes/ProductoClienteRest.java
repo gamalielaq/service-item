@@ -12,8 +12,8 @@ import SpringBoot.app.item.models.Producto;
 
 // Clase que hace la integracion con el microservicio productos(servicio-productos)
 
-@FeignClient(name = "servicio-productos", url = "localhost:8001" )
-//@FeignClient(name = "servicio-productos")
+//@FeignClient(name = "servicio-productos", url = "localhost:8001" )
+@FeignClient(name = "servicio-productos")
 public interface ProductoClienteRest {
 
     @GetMapping("api/listar")
