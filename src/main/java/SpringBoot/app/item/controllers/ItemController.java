@@ -29,8 +29,7 @@ public class ItemController {
     
     
     @Autowired
-    @Qualifier("serviceFeing")
-    //@Qualifier("serviceRestTemplate")
+    @Qualifier("serviceRestTemplate")
     private IItemService itemService;
 
     @GetMapping("/listar")

@@ -1,5 +1,5 @@
-# service-item
+# service-item  
 
-Estar levantado el microservicio productos branch 2022-01-Eureka-server
+Integración con con RestTemplate
 
-006- Resielience 4j y tolerancia a fallos
+Nota: levantar el mircroservico productos --> branch 2022-002-rest-template

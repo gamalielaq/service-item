@@ -18,7 +18,7 @@ import SpringBoot.app.item.models.Producto;
 @Service("serviceRestTemplate") // registar esta clase como un componente de spring(beans de spring)
 public class ItemServiceImp implements IItemService {
 	
-	 private final Logger log = LoggerFactory.getLogger(ItemServiceFeing.class);
+	 private final Logger log = LoggerFactory.getLogger(ItemServiceImp.class);
 
     @Autowired
     public RestTemplate http;
@@ -27,8 +27,8 @@ public class ItemServiceImp implements IItemService {
     public List<Item> findAll() {
     	   log.info("Entraste metodo findAll de rest template");
         List<Producto> productos = Arrays.asList(
-            //this.http.getForObject("http://localhost:8001/api/listar", Producto[].class)
-        		this.http.getForObject("http://servicio-productos/api/listar", Producto[].class)
+            this.http.getForObject("http://localhost:8001/api/listar", Producto[].class)
+            // this.http.getForObject("http://servicio-productos/api/listar", Producto[].class)
             
         );
 
