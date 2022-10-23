@@ -2,8 +2,11 @@ package SpringBoot.app.item.controllers;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -19,6 +22,12 @@ import SpringBoot.app.item.services.IItemService;
 @RequestMapping("/api")
 public class ItemController {
     
+    private final Logger log =  LoggerFactory.getLogger(ItemController.class);
+    
+    @Autowired
+    private CircuitBreakerFactory cbFactory; 
+    
+    
     @Autowired
     @Qualifier("serviceFeing")
     //@Qualifier("serviceRestTemplate")
@@ -33,7 +42,7 @@ public class ItemController {
     // @HystrixCommand(fallbackMethod = "metodoAlternativo") // Manejamos tolerancia de fallos
     @GetMapping("/listar/{id}/cantidad/{cantidad}")
     public Item detail(@PathVariable Long id, @PathVariable Integer cantidad) {
-        return this.itemService.findById(id, cantidad);
+        return this.cbFactory.create("items").run(() ->  this.itemService.findById(id, cantidad),e -> metodoAlternativo(id, cantidad, e));
     }
 
     @GetMapping("/test")
@@ -41,7 +50,10 @@ public class ItemController {
         return "Funciona tu pinche microservicio";
     }
     
-    public Item metodoAlternativo(Long id, Integer cantidad) {
+    public Item metodoAlternativo(Long id, Integer cantidad, Throwable e) {
+        
+        log.info(e.getMessage());
+        
         Item item = new Item();
         Producto producto= new Producto();
         
