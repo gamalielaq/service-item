@@ -3,6 +3,7 @@ package SpringBoot.app.item;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// @EnableFeignClients
 @SpringBootApplication
 public class ServiceItemApplication {
 

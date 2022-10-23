@@ -26,10 +26,9 @@ public class ItemController {
     
     @Autowired
     private CircuitBreakerFactory cbFactory; 
-    
-    
-    @Autowired
-    @Qualifier("serviceRestTemplate")
+
+    @Qualifier("serviceFeing")  
+    // @Qualifier("serviceRestTemplate")
     private IItemService itemService;
 
     @GetMapping("/listar")
