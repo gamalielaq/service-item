@@ -25,8 +25,12 @@ public class ItemController {
     private final Logger log =  LoggerFactory.getLogger(ItemController.class);
     
     @Autowired
-    // @Qualifier("serviceFeing")
-    @Qualifier("serviceRestTemplate")
+    private CircuitBreakerFactory cbFactory; 
+    
+    
+    @Autowired
+    @Qualifier("serviceFeing")
+    //@Qualifier("serviceRestTemplate")
     private IItemService itemService;
 
     @GetMapping("/listar")
