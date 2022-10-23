@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-
 import SpringBoot.app.item.models.Item;
 import SpringBoot.app.item.models.Producto;
 import SpringBoot.app.item.services.IItemService;
@@ -32,7 +30,7 @@ public class ItemController {
     }
 
 
-    @HystrixCommand(fallbackMethod = "metodoAlternativo") // Manejamos tolerancia de fallos
+    // @HystrixCommand(fallbackMethod = "metodoAlternativo") // Manejamos tolerancia de fallos
     @GetMapping("/listar/{id}/cantidad/{cantidad}")
     public Item detail(@PathVariable Long id, @PathVariable Integer cantidad) {
         return this.itemService.findById(id, cantidad);
