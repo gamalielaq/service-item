@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -45,5 +48,35 @@ public class ItemServiceImp implements IItemService {
 
         return new Item(producto, cantidad);
     }
+
+    @Override
+    public Producto save(Producto producto) {
+        HttpEntity<Producto> body = new HttpEntity<Producto>(producto);
+        ResponseEntity<Producto> response = this.http.exchange("http://servicio-productos/api/crear", HttpMethod.POST, body, Producto.class);
+        Producto productoResponse = response.getBody();
+        return productoResponse;
+    }
+
+    @Override
+    public Producto update(Producto producto, Long id) {
+        HttpEntity<Producto> body = new HttpEntity<Producto>(producto);
+        
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id.toString());
+        
+        ResponseEntity<Producto> response = this.http.exchange("http://servicio-productos/api/editar/{id}",
+                    HttpMethod.PUT, body, Producto.class, map);
+        return response.getBody();
+    }
+
+    @Override
+    public void delete(Long id) {
+        Map<String, String> map = new HashMap<>();
+        map.put("id", id.toString());
+        
+        this.http.delete("http://servicio-productos/api/eliminar/{id}", map);
+    }
+    
+    
     
 }
