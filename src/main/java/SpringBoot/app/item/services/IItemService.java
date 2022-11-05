@@ -2,8 +2,9 @@ package SpringBoot.app.item.services;
 
 import java.util.List;
 
+import com.springboot.app.commons.entity.Producto;
+
 import SpringBoot.app.item.models.Item;
-import SpringBoot.app.item.models.Producto;
 
 public interface IItemService {
     

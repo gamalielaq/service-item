@@ -15,8 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.springboot.app.commons.entity.Producto;
+
 import SpringBoot.app.item.models.Item;
-import SpringBoot.app.item.models.Producto;
 
 @Service("serviceRestTemplate") // registar esta clase como un componente de spring(beans de spring)
 public class ItemServiceImp implements IItemService {

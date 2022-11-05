@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import SpringBoot.app.item.models.Producto;
+import com.springboot.app.commons.entity.Producto;
+
 
 /*
     servicio-productos --> Nombre del microservicio que se declara en el archivo appication.properies
